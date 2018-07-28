@@ -31,6 +31,14 @@ h1, h2, h3, h4, h5, h6 {
     font-family: "muli-regular";
     box-shadow: 2px 1px 3px rgb(16, 126, 2);
 }
+.kiri {
+    text-align: right;
+    padding: 10px;
+}
+.kanan {
+    text-align: left;
+    padding: 10px;
+}
 .btn {
     box-shadow: 2px 1px 1px rgb(16, 126, 2);
 }
