@@ -1,0 +1,98 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <title>List Kartun Lucuk</title>
+    <link rel="stylesheet" href="css/bootstrap.min.css" >
+    <link rel="stylesheet" href="css/desainku.css">
+	
+    <link href="vendor/font-awesome/css/font-awesome.min.css" rel="stylesheet" type="text/css">
+</head>
+<body>
+    <div class="container">
+        <div>
+            <div class="row">
+                <div class="col-md-4">
+                    <h1>Daftar Nama Kartun Lucuk</h1>
+                    <p>Kami percaya Anda pernah melihat film kartun kartun yang lucuk lucuk. Coba ketik nama kartun yang anda sukai. Kemudian klik tambah. Untuk menghapus klik list yang sydah anda input </p>
+                    <h3>Follow Aku :</h3>
+                    <p>Biar makin kenal yuk ah difolow aja</p>
+                    <a href="http://facebook.com/zaemakhrus"><i class="fa fa-facebook fa-2x"></i></a>
+                    <a href="https://linkedin.com/desawarna"><i class="fa fa-linkedin fa-2x fa-fw"></i></a>
+                    <a href="http://twitter.com/zaemakhrus"><i class="fa fa-twitter fa-2x"></i></a>
+                    <a href="https://github.com/desawarna"><i class="fa fa-github fa-2x fa-fw"></i></a>
+                    <hr/>
+                    <div class="footer">
+                        <p>Di desain oleh M.Zaemakhrus. Vektor gambar diamabil dari <a href="http://disqus.com">disqus.com</a> </p>
+                        <i>Semarang , 28 Juli 2018</i>
+                    </div>
+                    
+                </div>
+                <div class="col-md-8">
+                    <input id="input-kartun" placeholder="Masukkan Nama"/>
+                    <button id="button" class="btn btn-success">Tambah <i class="fa fa-add-plus"></i> </button>
+                    <br /> <br />
+                    <ul id="list" class="list-group">
+                    </ul>
+                </div>
+                
+            </div>
+        </div>
+    </div>
+    
+    <script>
+    
+
+        let data = [];
+        
+        localData = JSON.parse(localStorage.getItem('data'));
+        if(localData != null){
+            data = localData;
+        }
+        
+
+        const inputDOM = document.getElementById('input-kartun');
+
+        // TODO
+        // buatlah variabel DOM untuk mengakses button
+        const buttonDOM = document.getElementById('button');      
+
+        // buatlah variabel DOM untuk mengakses ol
+        const listDOM = document.getElementById('list');
+
+        // listDOM.innerHTML = localStorage.getItem('data');
+
+        buttonDOM.addEventListener('click', function(){
+            const kartun = inputDOM.value;
+            data.push(kartun);
+            render();
+            // listDOM.innerHTML = listDOM.innerHTML + "<li>" + kartun + "</li>";
+            inputDOM.value = "";
+            localStorage.setItem('data', JSON.stringify(data));
+            // alert('hello');
+            
+        });
+
+        function render(){
+            let html = "";
+            for(var i = 0; i < data.length; i++){
+                // html = html + "<li>" + data[i] + "</li>";
+                html = html + `<li class="list-group-item" onClick="remove(${i})">${data[i]}</li>`;
+            }
+
+            listDOM.innerHTML = html;
+        }
+
+        render();
+
+
+        function remove(id){
+            data.splice(id, 1);
+            localStorage.setItem('data', JSON.stringify(data));
+            render();
+        }
+
+     
+  
+    </script>
+</body>
+</html>
