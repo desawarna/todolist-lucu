@@ -29,13 +29,35 @@ h1, h2, h3, h4, h5, h6 {
     border-radius: 5px;
     font-family: "muli-regular";
 }
-.kiri {
-    text-align: right;
-    padding: 10px;
-}
 .kanan {
     text-align: left;
     padding: 10px;
+}
+.kiri {
+    text-align: left;
+    padding: 10px;
+}
+.sosmed {
+    display: inline-flex;
+    list-style: none;
+}
+.sosmed li {
+    background: #2e87e7;
+    width: 45px;
+    height: 45px;
+    padding: 5px;
+    border-radius: 50%;
+    box-shadow: 1px 1px 3px #a4a4a4;
+    margin: 0 5px 0 0;
+}
+.sosmed li:hover {
+    background: #fff;
+}
+.sosmed li a {
+    color: #fff;
+}
+.sosmed li a:hover {
+    color : #2e87e7;
 }
 .btn {
     box-shadow: 2px 1px 1px rgb(16, 126, 2);
@@ -58,10 +80,10 @@ h1, h2, h3, h4, h5, h6 {
 and (min-device-width : 320px) 
 and (max-device-width : 480px) {
 /* Styles */
-.kiri h1 , .kanan h1 {
+.kanan h1 , .kiri h1 {
     font-size: 20px;
 }
-.kiri h3 {
+.kanan h3 {
     font-size: 18px;
 }
 input {
